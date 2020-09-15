@@ -1,1 +1,8 @@
 # gradebook
+
+
+```c#
+
+dotnet run
+
+```
