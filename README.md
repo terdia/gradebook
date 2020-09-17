@@ -3,6 +3,7 @@
 
 ```c#
 
-dotnet run
+dotnet build
+dotnet test
 
 ```

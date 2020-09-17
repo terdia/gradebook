@@ -6,11 +6,11 @@ namespace GradeBook
     public class Book
     {
         private List<double> grades;
-        private string name;
+        public string Name; // public member Always has uppercase name 
 
         public Book(string name)
         {
-            this.name = name;
+            this.Name = name;
             this.grades = new List<double>() { };
         }
 
