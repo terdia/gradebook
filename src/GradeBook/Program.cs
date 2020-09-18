@@ -10,9 +10,29 @@ namespace GradeBook
         {
 
             var book = new Book("Terry's grade book");
-            book.AddGrade(56.3);
-            book.AddGrade(10.4);
-            book.AddGrade(12.7);
+
+            while (true)
+            {
+                Console.WriteLine($"Add grade to {book.Name}, press 'q' to compute stats");
+                string input = Console.ReadLine();
+
+                if (input.ToLower() == "q")
+                {
+                    break;
+                }
+
+                try
+                {
+                    var grade = double.Parse(input);
+                    book.AddGrade(grade);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+
+            };
 
             book.PrintStatistics();
 
