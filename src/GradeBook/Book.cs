@@ -22,7 +22,7 @@ namespace GradeBook
             }
             else
             {
-                Console.WriteLine("Invalid value");
+                throw new ArgumentException($"Invalid {nameof(grade)}");
             }
 
         }
@@ -55,7 +55,7 @@ namespace GradeBook
 
             result.Average = sum / this.grades.Count;
             result.Letter = this.GetLetterGradeFromAverage(result.Average);
-            
+
             return result;
         }
 

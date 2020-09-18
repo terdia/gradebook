@@ -11,13 +11,27 @@ namespace GradeBook
 
             var book = new Book("Terry's grade book");
 
-            Console.WriteLine($"Add grades to {book.Name}, when done press Q to compute stats");
-            string input = Console.ReadLine();
-
-            while (input.ToUpper() != "Q")
+            while (true)
             {
-                book.AddGrade(double.Parse(input));
-                input = Console.ReadLine();
+                Console.WriteLine($"Add grade to {book.Name}, press 'q' to compute stats");
+                string input = Console.ReadLine();
+
+                if (input.ToLower() == "q")
+                {
+                    break;
+                }
+
+                try
+                {
+                    var grade = double.Parse(input);
+                    book.AddGrade(grade);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+
             };
 
             book.PrintStatistics();
