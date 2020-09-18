@@ -21,6 +21,22 @@ namespace GradeBook.Tests
             Assert.Equal(26.5, result.Average, 1);
             Assert.Equal(56.3, result.Highest, 1);
             Assert.Equal(10.4, result.Lowest, 1);
+            Assert.Equal('F', result.Letter);
+        }
+
+        [Fact]
+        public void AddGradeIgnoreInvalidValues()
+        {
+            // arrange
+            var book = new Book("");
+            book.AddGrade(-4);
+            book.AddGrade(-16);
+
+            //act 
+            var result = book.GetStatistics();
+
+            //assert 
+            Assert.Equal(0.0, result.Average, 1);
         }
     }
 }
