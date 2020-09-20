@@ -5,8 +5,6 @@ namespace GradeBook
 {
     public class Book
     {
-        private List<double> grades;
-        public string Name; // public member Always has uppercase name 
 
         public Book(string name)
         {
@@ -59,16 +57,6 @@ namespace GradeBook
             return result;
         }
 
-        public void PrintStatistics()
-        {
-            var stats = this.GetStatistics();
-
-            System.Console.WriteLine($"The highest grade is {stats.Highest}");
-            System.Console.WriteLine($"The lowest grade is {stats.Lowest}");
-            System.Console.WriteLine($"The average grade is {stats.Average:N1}");
-            System.Console.WriteLine($"The letter grade is {stats.Letter}");
-        }
-
         public char GetLetterGradeFromAverage(double average)
         {
             char letterGrade;
@@ -94,5 +82,27 @@ namespace GradeBook
 
             return letterGrade;
         }
+
+
+        public void PrintStatistics()
+        {
+            var stats = this.GetStatistics();
+
+            System.Console.WriteLine($"The highest grade is {stats.Highest}");
+            System.Console.WriteLine($"The lowest grade is {stats.Lowest}");
+            System.Console.WriteLine($"The average grade is {stats.Average:N1}");
+            System.Console.WriteLine($"The letter grade is {stats.Letter}");
+        }
+
+
+        private List<double> grades;
+
+        public string Name
+        {
+            get;
+            set;
+        }
+     
     }
+
 }

@@ -25,18 +25,12 @@ namespace GradeBook.Tests
         }
 
         [Fact]
-        public void AddGradeIgnoreInvalidValues()
+        public void AddGradeThrowsArgumentExceptionForInvalidValues()
         {
-            // arrange
             var book = new Book("");
-            book.AddGrade(-4);
-            book.AddGrade(-16);
 
-            //act 
-            var result = book.GetStatistics();
+            Assert.Throws<ArgumentException>(() => book.AddGrade(-4));
 
-            //assert 
-            Assert.Equal(0.0, result.Average, 1);
         }
     }
 }
