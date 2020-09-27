@@ -10,6 +10,7 @@ namespace GradeBook
         {
 
             var book = new Book("Terry's grade book");
+            book.GradeAdded += OnGradeAdded;
 
             while (true)
             {
@@ -36,6 +37,10 @@ namespace GradeBook
 
             book.PrintStatistics();
 
+        }
+
+        static void OnGradeAdded(object sender, EventArgs args){
+            Console.WriteLine("A grade was added listener");
         }
     }
 }
