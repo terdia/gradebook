@@ -3,8 +3,27 @@ using Xunit;
 
 namespace GradeBook.Tests
 {
+
+    public delegate string WriteLogDelegate(string message);
+
     public class TypeTests
     {
+
+        [Fact]
+        public void WriteLogDelegateTest()
+        {
+            WriteLogDelegate log = LogMessage;
+
+            var result = log("Works");
+            Assert.Equal("Works", result);
+
+        }
+
+        string LogMessage(string message)
+        {
+            return message;
+        }
+
 
         //value type test
         [Fact]
@@ -42,7 +61,6 @@ namespace GradeBook.Tests
         {
             x = 10;
         }
-
 
         //reference type tests
         [Fact]
