@@ -9,9 +9,19 @@ namespace GradeBook
         static void Main(string[] args)
         {
 
-            var book = new Book("Terry's grade book");
+            var book = new DiskBook("gradebook");
             book.GradeAdded += OnGradeAdded;
 
+            //var diskBook = new DiskBook("gradebook");
+
+            EnterGrades(book);
+
+            book.PrintStatistics();
+
+        }
+
+        private static void EnterGrades(IBook book)
+        {
             while (true)
             {
                 Console.WriteLine($"Add grade to {book.Name}, press 'q' to compute stats");
@@ -32,11 +42,7 @@ namespace GradeBook
                     Console.WriteLine(ex.Message);
                 }
 
-
             };
-
-            book.PrintStatistics();
-
         }
 
         static void OnGradeAdded(object sender, EventArgs args){

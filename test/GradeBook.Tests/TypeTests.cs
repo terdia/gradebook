@@ -75,9 +75,9 @@ namespace GradeBook.Tests
         }
 
 
-        private void GetSetNameByRef(ref Book book, string newName)
+        private void GetSetNameByRef(ref InMemoryBook book, string newName)
         {
-            book = new Book(newName);
+            book = new InMemoryBook(newName);
             book.Name = newName;
         }
 
@@ -93,9 +93,9 @@ namespace GradeBook.Tests
 
         }
 
-        private void GetSetName(Book book, string newName)
+        private void GetSetName(InMemoryBook book, string newName)
         {
-            book = new Book(newName); // points to a different reference in memory
+            book = new InMemoryBook(newName); // points to a different reference in memory
             book.Name = newName;
         }
 
@@ -111,7 +111,7 @@ namespace GradeBook.Tests
 
         }
 
-        private void SetName(Book book, string newName)
+        private void SetName(InMemoryBook book, string newName)
         {
             book.Name = newName;
         }
@@ -143,9 +143,9 @@ namespace GradeBook.Tests
 
         }
 
-        private Book GetBook(string name)
+        private InMemoryBook GetBook(string name)
         {
-            return new Book(name);
+            return new InMemoryBook(name);
         }
     }
 
